@@ -113,9 +113,9 @@ def get_readable_message():
         msg = ""
         start = 0
         if STATUS_LIMIT is not None:
-            dick_no = len(download_dict)
+            tasks = len(download_dict)
             global pages
-            pages = math.ceil(dick_no/STATUS_LIMIT)
+            pages = math.ceil(tasks/STATUS_LIMIT)
             if pages != 0 and PAGE_NO > pages:
                 globals()['COUNT'] -= STATUS_LIMIT
                 globals()['PAGE_NO'] -= 1
@@ -150,8 +150,8 @@ def get_readable_message():
             msg += "\n\n"
             if STATUS_LIMIT is not None and index == STATUS_LIMIT:
                 break
-        if STATUS_LIMIT is not None and dick_no > STATUS_LIMIT:
-            msg += f"<b>Page:</b> {PAGE_NO}/{pages} | <b>Tasks:</b> {dick_no}\n"
+        if STATUS_LIMIT is not None and tasks > STATUS_LIMIT:
+            msg += f"<b>Page:</b> {PAGE_NO}/{pages} | <b>Tasks:</b> {tasks}\n"
             buttons = button_build.ButtonMaker()
             buttons.sbutton("Previous", "pre")
             buttons.sbutton("Next", "nex")
